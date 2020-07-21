@@ -1,0 +1,12 @@
+{
+	"client":{
+		"cp_id":"5190090000026400686",
+		"product_id":"736430079244562052",
+		"client_id":"405644457711502400",
+		"client_secret":"2BE3ADEA89B644CDB424D0459AA3EDE1BD7DDD5BBCFACA64EA0C23D04942F332",
+		"app_id":"102555647",
+		"package_name":"com.rahmican.locationkitdemo",
+		"api_key":"CgB6e3x9exm2TqtyQH+iAE2P4ManGbJsVLn8JNa8TsVmcRribkJBCbgVCnsEPm6wXzs7WoWvQmVlAOCbhrA3E8qC"
+	},
+	"configuration_version":"1.0"
+}
