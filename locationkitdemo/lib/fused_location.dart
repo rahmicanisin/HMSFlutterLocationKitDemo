@@ -42,7 +42,6 @@ class _FusedLocationState extends State<FusedLocation> {
   int requestCode;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     locationService = FusedLocationProviderClient();
     permissionHandler = PermissionHandler();

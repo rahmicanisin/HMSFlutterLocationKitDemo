@@ -42,7 +42,6 @@ class _GeofenceServiceScreenState extends State<GeofenceServiceScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fenceCount = 0;
     geofenceList = <Geofence>[];

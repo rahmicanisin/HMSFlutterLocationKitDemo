@@ -35,7 +35,6 @@ class _ActivityIdentificationState extends State<ActivityIdentification> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     permissionHandler = PermissionHandler();
     activityIdentificationService =

@@ -14,6 +14,7 @@ import 'package:huawei_location/activity/activity_conversion_response.dart';
 import 'package:huawei_location/activity/activity_identification_data.dart';
 import 'package:huawei_location/activity/activity_identification_service.dart';
 
+
 class ActivityConversion extends StatefulWidget {
   @override
   _ActivityConversionState createState() => _ActivityConversionState();
@@ -47,7 +48,6 @@ class _ActivityConversionState extends State<ActivityConversion> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _activityTypes = <String>[
       "VEHICLE[100]",

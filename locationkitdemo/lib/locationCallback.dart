@@ -38,7 +38,6 @@ class _LocationCallBackState extends State<LocationCallBack> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     locationService = FusedLocationProviderClient();
     locationRequest = LocationRequest();

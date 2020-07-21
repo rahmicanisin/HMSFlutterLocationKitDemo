@@ -77,7 +77,7 @@ packages:
   huawei_location:
     dependency: "direct main"
     description:
-      path: "../huawei_location"
+      path: "../../huawei_location"
       relative: true
     source: path
     version: "4.0.4"

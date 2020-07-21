@@ -31,8 +31,12 @@ dependencies:
 
   getwidget: ^1.1.0
 
+  # you downland kit on zip.
   huawei_location:
-    path: ../huawei_location
+    path: <enter your huawei location path>
+
+  # Or Use this package as a library.
+  huawei_location: ^4.0.4+300
 
 dev_dependencies:
   flutter_test:
