@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
@@ -76,9 +75,8 @@ class _ActivityIdentificationState extends State<ActivityIdentification> {
 
     try {
       requestCode = await activityIdentificationService.createActivityIdentificationUpdates(5000);
-      // status is true if permissions are granted, false otherwise
       setState(() {
-        infoText = requestCode.toString();
+        infoText = "Created Activity Identification Updates successfully.";
       });
 
     } catch (e) {
@@ -105,12 +103,17 @@ void streamListen() {
       try {
         await activityIdentificationService.deleteActivityIdentificationUpdates(requestCode);
         requestCode = null;
+        setState(() {
+          infoText ="Deleted Activity Identification Updates successfully.";
+        });
 
-        infoText ="Deleted Activity Identification Updates successfully.";
       } catch (e) {
         infoText= e.toString();
       }
     } else {
+      setState(() {
+        infoText = "Create Activity Identification Updates first.";
+      });
       infoText = "Create Activity Identification Updates first.";
     }
   }

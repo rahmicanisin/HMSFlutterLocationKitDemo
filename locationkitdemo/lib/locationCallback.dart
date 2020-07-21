@@ -1,17 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:huawei_location/location/fused_location_provider_client.dart';
@@ -30,6 +17,7 @@ class LocationCallBack extends StatefulWidget {
 class _LocationCallBackState extends State<LocationCallBack> {
 
   String infoText = "Unknown";
+  String bottomText = "";
   int callbackId;
   FusedLocationProviderClient locationService;
   LocationRequest locationRequest;
@@ -47,13 +35,13 @@ class _LocationCallBackState extends State<LocationCallBack> {
 
   void _onLocationResult(LocationResult res) {
     setState(() {
-      infoText = infoText + "\n\n" + res.toString();
+      bottomText = bottomText + "\n\n" + res.toString();
     });
   }
 
   void _onLocationAvailability(LocationAvailability availability) {
     setState(() {
-      infoText = infoText + "\n\n" + availability.toString();
+      bottomText = bottomText + "\n\n" + availability.toString();
     });
   }
 
@@ -162,20 +150,12 @@ class _LocationCallBackState extends State<LocationCallBack> {
                 top: 10,
               ),
               height: 90,
-              child: Text(infoText),
+              child: AutoSizeText(infoText),
             ),
             Divider(
               thickness: 0.1,
               color: Colors.black,
             ),
-            /* RaisedButton(
-              child:Text("IsPermissions"),
-              onPressed: hasPermission,
-            ),
-            RaisedButton(
-              child:Text("RequestPermissions"),
-              onPressed: requestPermission,
-            ), */
             RaisedButton(
               child:Text("requestLocationUpdatesCb"),
               onPressed: requestLocationUpdatesCb,
@@ -191,7 +171,17 @@ class _LocationCallBackState extends State<LocationCallBack> {
             RaisedButton(
               child:Text("removeLocationUpdatesExCb"),
               onPressed: removeLocationUpdatesExCb,
-            )
+            ),
+      Expanded(
+        child: new SingleChildScrollView(
+          child: AutoSizeText(
+            bottomText,
+            style: const TextStyle(
+              fontSize: 12.0,
+            ),
+          ),
+        ),
+      ),
           ],
         ),
       ),

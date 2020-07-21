@@ -1,8 +1,4 @@
-
-
-
-
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,6 +15,7 @@ import 'package:huawei_location/permission/permission_handler.dart';
 import 'package:locationkitdemo/activity_corversion.dart';
 import 'package:locationkitdemo/activity_identification_service.dart';
 import 'package:locationkitdemo/locationCallback.dart';
+
 
 
 class FusedLocation extends StatefulWidget {
@@ -43,6 +40,7 @@ class _FusedLocationState extends State<FusedLocation> {
   @override
   void initState() {
     super.initState();
+    // init services
     locationService = FusedLocationProviderClient();
     permissionHandler = PermissionHandler();
     locationRequest = LocationRequest();
@@ -50,6 +48,8 @@ class _FusedLocationState extends State<FusedLocation> {
     locationRequestList = <LocationRequest>[locationRequest];
     locationSettingsRequest =
         LocationSettingsRequest(requests: locationRequestList);
+
+    //set mockLocation
     mockLocation = Location(latitude: 38.6155, longitude: 27.4245);
 
   }
@@ -224,10 +224,12 @@ class _FusedLocationState extends State<FusedLocation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Fused Location Service'),
       ),
-      body: Container(
+      body:  SingleChildScrollView(
+      child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -236,14 +238,14 @@ class _FusedLocationState extends State<FusedLocation> {
               padding: EdgeInsets.only(
                 top: 10,
               ),
-              height: 90,
-              child: Text(infoText),
+              height: 140,
+              child: AutoSizeText(infoText,style: TextStyle(fontSize: 30),maxLines: 9),
             ),
             Divider(
               thickness: 0.1,
               color: Colors.black,
             ),
-           /* RaisedButton(
+            RaisedButton(
               child:Text("IsPermissions"),
               onPressed: hasPermission,
             ),
@@ -258,7 +260,7 @@ class _FusedLocationState extends State<FusedLocation> {
             RaisedButton(
               child:Text("checkLocationSettings"),
               onPressed: checkLocationSettings,
-            ), */
+            ),
             RaisedButton(
               child:Text("getLastLocation"),
               onPressed: getLastLocation,
@@ -302,6 +304,7 @@ class _FusedLocationState extends State<FusedLocation> {
             )
           ],
         ),
+      ),
       ),
     );
   }
