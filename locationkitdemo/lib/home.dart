@@ -37,7 +37,7 @@ void routeToActivityIdentificationService() {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fused Location Service'),
+        title: const Text('HMS Location Kit'),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 12),

@@ -90,8 +90,12 @@ class _ActivityIdentificationState extends State<ActivityIdentification> {
     for (ActivityIdentificationData data
     in response.activityIdentificationDatas) {
       setChange(data.identificationActivity , data.possibility);
+
+      //data.identificationActivity include activity type like vehicle,bike etc.
+      //data.posibility The confidence for the user to execute the activity.
+      //The confidence ranges from 0 to 100. A larger value indicates more reliable activity authenticity.
     }
-    }
+  }
 void streamListen() {
   streamSubscription =
       activityIdentificationService.onActivityIdentification.listen(onActivityIdentificationResponse);

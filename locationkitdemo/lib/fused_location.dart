@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +34,9 @@ class _FusedLocationState extends State<FusedLocation> {
   LocationSettingsRequest locationSettingsRequest;
   LocationRequest locationRequest;
   Location mockLocation;
+  StreamSubscription<Location> streamSubs;
+
+
 
 
   String infoText = "Unknown";
@@ -49,8 +54,13 @@ class _FusedLocationState extends State<FusedLocation> {
     locationSettingsRequest =
         LocationSettingsRequest(requests: locationRequestList);
 
+    streamSubs = locationService.onLocationData.listen((location) {
+      print(location.toString());
+    });
+
     //set mockLocation
     mockLocation = Location(latitude: 38.6155, longitude: 27.4245);
+
 
   }
 
